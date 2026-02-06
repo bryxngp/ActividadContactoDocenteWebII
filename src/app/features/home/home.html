@@ -1,0 +1,39 @@
+<app-hero 
+    titulo="Veterinaria Patitas"  
+    subttitulo="Cuidamos a los que mas quieres"
+    imagen="https://tse3.mm.bing.net/th/id/OIP.RkAlZkGa4Is2z8Uhw2rGaAHaJQ?pid=ImgDet&w=474&h=592&rs=1&o=7&rm=3">
+</app-hero>
+
+<app-servicios [servicios]="[
+    {
+      id: 1,
+      nombre: 'Consulta General',
+      descripcion: 'Evaluación completa de tu mascota',
+      imagen: 'https://clinicalvet.com.br/wp-content/uploads/2024/08/Consultas.jpg',
+      activo: true
+    },
+    {
+      id: 2,
+      nombre: 'Cirugía Especializada',
+      descripcion: 'Cirujanos expertos a tu disposición',
+      imagen: 'https://hospitalveterinariopuchol.com/wp-content/uploads/2021/04/7-CIRUJANO-GERARDO1920px-1.jpg',
+      activo: true
+    },
+    {
+      id: 3,
+      nombre: 'Estética y Spa',
+      descripcion: 'Baño, corte y mucho amor',
+      imagen: 'https://surnoticias.com/images/2022/04/06/Estetica_canina.jpg',
+      activo: false
+    }
+]"></app-servicios>
+
+<app-pacientes  
+    tituloPanel="Urgencias - Clínica Patitas"
+    placeholder="Ej: Ramon..."
+    [listaPacientes]="[
+        { nombre: 'Ramon', especie: 'Perro', urgencia: 'alta', recuperacion: 85 },
+        { nombre: 'Lucas', especie: 'Gato', urgencia: 'baja', recuperacion: 40 },
+        { nombre: 'Valentina', especie: 'Conejo', urgencia: 'media', recuperacion: 10 }
+    ]"
+></app-pacientes>

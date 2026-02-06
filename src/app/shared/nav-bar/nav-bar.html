@@ -1,0 +1,63 @@
+<nav
+    class="bg-gradient-to-r from-emerald-600 via-teal-500 to-mint-400 fixed w-full z-20 top-0 start-0 border-b border-white/20 shadow-xl">
+    <style>
+        .to-mint-400 {
+            --tw-gradient-to: #4ade80;
+        }
+
+        .text-emerald-600 {
+            color: #059669;
+        }
+    </style>
+
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse group">
+            <div class="bg-white p-1.5 rounded-full shadow-lg group-hover:rotate-12 transition-transform duration-300">
+                <img src="/images/veterinario.png" class="h-8" alt="Patitas Logo" />
+            </div>
+            <span class="self-center text-2xl font-black tracking-tight whitespace-nowrap text-white">Patitas</span>
+        </a>
+
+        <button data-collapse-toggle="navbar-default" type="button"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-white rounded-lg md:hidden hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-emerald-200"
+            aria-controls="navbar-default" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+            <ul
+                class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-white/20 rounded-2xl bg-emerald-700 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent">
+                <li>
+                    <a href="#"
+                        class="block py-2 px-3 text-white bg-white/10 rounded-lg md:bg-transparent md:text-white md:font-extrabold md:p-0 transition-colors"
+                        aria-current="page">Home</a>
+                </li>
+                <li>
+                    <a routerLink="/acerca"
+                        class="block py-2 px-3 text-emerald-50 rounded-lg hover:bg-white/10 md:hover:bg-transparent md:border-0 md:hover:text-emerald-100 md:p-0 transition-all hover:translate-y-[-2px]">Acerca</a>
+                </li>
+
+                <li>
+                    <a routerLink="/consultas"
+                        class="block py-2 px-3 text-emerald-50 rounded-lg hover:bg-white/10 md:hover:bg-transparent md:border-0 md:hover:text-emerald-100 md:p-0 transition-all hover:translate-y-[-2px]">Consultas</a>
+                </li> 
+                <li>
+                <a href="#"
+                    class="block py-2 px-3 text-emerald-50 rounded-lg hover:bg-white/10 md:hover:bg-transparent md:border-0 md:hover:text-emerald-100 md:p-0 transition-all hover:translate-y-[-2px]">Mascotas</a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="block py-2 px-3 text-emerald-50 rounded-lg hover:bg-white/10 md:hover:bg-transparent md:border-0 md:hover:text-emerald-100 md:p-0 transition-all hover:translate-y-[-2px]">Contacto</a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="ml-0 md:ml-4 block py-2.5 px-6 text-emerald-600 bg-white font-black rounded-full hover:bg-emerald-50 shadow-lg transition-all active:scale-90 text-center uppercase text-sm tracking-wider">Registro</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

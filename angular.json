@@ -2,7 +2,8 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "analytics": "2ab52c0d-2247-4417-b667-13985214a10a"
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -26,6 +27,9 @@
             ],
             "styles": [
               "src/styles.css"
+            ],
+            "scripts": [
+              "node_modules/flowbite/dist/flowbite.min.js"
             ]
           },
           "configurations": {

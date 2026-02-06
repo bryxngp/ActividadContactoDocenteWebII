@@ -1,0 +1,46 @@
+<header class="pt-32 pb-16 lg:pt-48 lg:pb-32 overflow-hidden" [class]="colorFondo">
+    <div class="container px-6 mx-auto">
+        <div class="flex flex-col lg:flex-row items-center justify-between">
+            <div class="w-full lg:w-1/2 space-y-8">
+                <div
+                    class="inline-flex items-center px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-sm font-bold tracking-wide uppercase">
+                    🐾 El cuidado que ellos merecen
+                </div>
+
+                <h1 class="text-5xl lg:text-7xl font-black text-slate-900 leading-tight">
+                    <span class="text-emerald-500">{{titulo}}</span>
+                </h1>
+
+                <p class="text-lg text-slate-500 max-w-lg leading-relaxed">
+                    {{subttitulo}}
+                </p>
+
+
+            </div>
+
+            <div class="w-full lg:w-1/2 mt-16 lg:mt-0 relative">
+                <div
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-emerald-50 rounded-full -z-10 opacity-50">
+                </div>
+
+                <div class="relative group">
+                    <img class="w-full h-[550px] object-cover rounded-[3rem] shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]"
+                        [src]="imagen" alt="Perro feliz en clínica">
+
+                    <div
+                        class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl hidden md:block border border-slate-100 animate-bounce-slow">
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-emerald-100 p-2 rounded-lg">
+                                <span class="text-2xl text-emerald-600 font-bold">4.9/5</span>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-slate-900">+2,000 Pacientes</p>
+                                <p class="text-xs text-slate-400">Dueños Felices en 2024</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

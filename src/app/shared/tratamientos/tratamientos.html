@@ -1,0 +1,130 @@
+<section class="bg-white py-20">
+    <div class="container px-6 mx-auto">
+        <h2 class="text-4xl font-black text-center text-slate-800 italic lg:text-5xl">
+            Hora <span class="text-emerald-500">de salida de tu mascota</span>
+        </h2>
+
+        <div class="w-24 h-1 bg-emerald-500 mx-auto mt-4 rounded-full"></div>
+
+        <div class="grid gap-12 mt-16 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+
+            <div class="w-full text-center group">
+                <div
+                    class="relative overflow-hidden rounded-[3rem] shadow-lg transition-all duration-500 group-hover:shadow-emerald-100 group-hover:-translate-y-2">
+                    <img class="object-cover object-center w-full h-64 mx-auto transition-transform duration-700 group-hover:scale-110"
+                        src="https://th.bing.com/th/id/R.3bcb36f3d4774fb93fbe48d0a25737eb?rik=WXX7B4olBgn8TQ&riu=http%3a%2f%2f4.bp.blogspot.com%2f-DYVbSKM0xGQ%2fUnKclbsDugI%2fAAAAAAAAAI0%2fv3FhyPcK02Y%2fs1600%2fimagenes-de-perritos-bonitos.jpg&ehk=uY%2bcX0a3udlR4%2bcaEqFEHaDmly9dBmwI4ktryOKByl8%3d&risl=&pid=ImgRaw&r=0"
+                        alt="Peluche" />
+                    <div
+                        class="absolute inset-0 bg-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+
+                <div class="mt-6">
+                    <h3 class="text-xl font-black text-slate-800 uppercase tracking-tight">Peluche</h3>
+                    <span
+                        class="text-sm font-bold text-emerald-600 italic uppercase tracking-widest block mt-1">Cirugia</span>
+
+                    <div class="mt-2">
+                        <h1 class="text-2xl font-black transition-all duration-500"
+                            [ngClass]="obtenerRecuperacion(pacientes[0].entrada) === 100 ? 'text-emerald-500' : 'text-slate-400'">
+                            {{ obtenerRecuperacion(pacientes[0].entrada) }}%
+                        </h1>
+                        <div class="w-20 h-1 bg-slate-100 mx-auto mt-1 rounded-full overflow-hidden">
+                            <div class="h-full bg-emerald-500 transition-all duration-1000"
+                                [ngStyle]="{'width': obtenerRecuperacion(pacientes[0].entrada) + '%'}"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full text-center group">
+                <div
+                    class="relative overflow-hidden rounded-[3rem] shadow-lg transition-all duration-500 group-hover:shadow-emerald-100 group-hover:-translate-y-2">
+                    <img class="object-cover object-center w-full h-64 mx-auto transition-transform duration-700 group-hover:scale-110"
+                        src="https://th.bing.com/th/id/R.0108e1f80a1ac5bc885bc3117b63e89a?rik=qX0Vn%2b2xiYrdHg&riu=http%3a%2f%2fwww.shareyourwallpaper.com%2fupload%2fwallpaper%2fanimals%2fdogs%2fdogs_fcd673db.jpg&ehk=7rlKNZTQG8MAd2aKYKDqOSbPMpPuD0%2f9o2dvRF5DuWU%3d&risl=&pid=ImgRaw&r=0"
+                        alt="Jane" />
+                    <div
+                        class="absolute inset-0 bg-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+
+                <div class="mt-6">
+                    <h3 class="text-xl font-black text-slate-800 uppercase tracking-tight">Jane</h3>
+                    <span
+                        class="text-sm font-bold text-emerald-600 italic uppercase tracking-widest block mt-1">Limpieza
+                        de patitas</span>
+
+                    <div class="mt-2">
+                        <h1 class="text-2xl font-black transition-all duration-500"
+                            [ngClass]="obtenerRecuperacion(pacientes[1].entrada) === 100 ? 'text-emerald-500' : 'text-slate-400'">
+                            {{ obtenerRecuperacion(pacientes[1].entrada) }}%
+                        </h1>
+                        <div class="w-20 h-1 bg-slate-100 mx-auto mt-1 rounded-full overflow-hidden">
+                            <div class="h-full bg-emerald-500 transition-all duration-1000"
+                                [ngStyle]="{'width': obtenerRecuperacion(pacientes[1].entrada) + '%'}"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full text-center group">
+                <div
+                    class="relative overflow-hidden rounded-[3rem] shadow-lg transition-all duration-500 group-hover:shadow-emerald-100 group-hover:-translate-y-2">
+                    <img class="object-cover object-center w-full h-64 mx-auto transition-transform duration-700 group-hover:scale-110"
+                        src="https://tse4.mm.bing.net/th/id/OIP.jz_QRfxPBvO8_TfM9V3jywHaHa?rs=1&pid=ImgDetMain&o=7&rm=3"
+                        alt="Ben" />
+                    <div
+                        class="absolute inset-0 bg-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+
+                <div class="mt-6">
+                    <h3 class="text-xl font-black text-slate-800 uppercase tracking-tight">Ben</h3>
+                    <span
+                        class="text-sm font-bold text-emerald-600 italic uppercase tracking-widest block mt-1">Castracion</span>
+
+                    <div class="mt-2">
+                        <h1 class="text-2xl font-black transition-all duration-500"
+                            [ngClass]="obtenerRecuperacion(pacientes[2].entrada) === 100 ? 'text-emerald-500' : 'text-slate-400'">
+                            {{ obtenerRecuperacion(pacientes[2].entrada) }}%
+                        </h1>
+                        <div class="w-20 h-1 bg-slate-100 mx-auto mt-1 rounded-full overflow-hidden">
+                            <div class="h-full bg-emerald-500 transition-all duration-1000"
+                                [ngStyle]="{'width': obtenerRecuperacion(pacientes[2].entrada) + '%'}"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full text-center group">
+                <div
+                    class="relative overflow-hidden rounded-[3rem] shadow-lg transition-all duration-500 group-hover:shadow-emerald-100 group-hover:-translate-y-2">
+                    <img class="object-cover object-center w-full h-64 mx-auto transition-transform duration-700 group-hover:scale-110"
+                        src="https://th.bing.com/th/id/R.c9305a7affdab3b12b33ea18d856fafe?rik=ttvVe6tR7DaRBg&riu=http%3a%2f%2fwww.blogerin.com%2fwp-content%2fuploads%2f2012%2f10%2fFotos-tiernas-de-perritos-wallpapers-3.jpg&ehk=D8dy6eGs9LBL7OK%2fdVzSpPYpk2ZFj%2flzJEAUCCOcyzY%3d&risl=&pid=ImgRaw&r=0"
+                        alt="Criss" />
+                    <div
+                        class="absolute inset-0 bg-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+
+                <div class="mt-6">
+                    <h3 class="text-xl font-black text-slate-800 uppercase tracking-tight">Criss</h3>
+                    <span
+                        class="text-sm font-bold text-emerald-600 italic uppercase tracking-widest block mt-1">Desparacitacion</span>
+
+                    <div class="mt-2">
+                        <h1 class="text-2xl font-black transition-all duration-500"
+                            [ngClass]="obtenerRecuperacion(pacientes[3].entrada) === 100 ? 'text-emerald-500' : 'text-slate-400'">
+                            {{ obtenerRecuperacion(pacientes[3].entrada) }}%
+                        </h1>
+                        <div class="w-20 h-1 bg-slate-100 mx-auto mt-1 rounded-full overflow-hidden">
+                            <div class="h-full bg-emerald-500 transition-all duration-1000"
+                                [ngStyle]="{'width': obtenerRecuperacion(pacientes[3].entrada) + '%'}"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

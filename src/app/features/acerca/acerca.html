@@ -1,0 +1,32 @@
+<app-hero titulo="Veterinaria Patitas" subttitulo="Tenemos una historia comprometidos con tus mascotas"
+    imagen="https://i.pinimg.com/originals/fb/6d/16/fb6d16c4321ab45dad1c6290f2740f7a.jpg"
+    colorFondo="bg-emerald-200"
+    ></app-hero>
+
+<app-pacientes 
+    tituloPanel="Planes de Bienestar"
+    labelBuscador="Filtrar por beneficio"
+    placeholder="Ej: Dental, Vacunas..."
+    [listaPacientes]="[
+        { 
+            nombre: 'Plan Cachorro (Mensual)', 
+            especie: '$25.00 / mes', 
+            urgencia: 'baja', 
+            recuperacion: 10 
+        },
+        { 
+            nombre: 'Plan Adulto Plus', 
+            especie: '$45.00 / mes', 
+            urgencia: 'media', 
+            recuperacion: 25 
+        },
+        { 
+            nombre: 'Plan Senior VIP', 
+            especie: '$70.00 / mes', 
+            urgencia: 'alta', 
+            recuperacion: 50 
+        }
+    ]"
+></app-pacientes>
+
+<app-tratamientos></app-tratamientos>

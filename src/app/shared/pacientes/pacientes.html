@@ -1,0 +1,52 @@
+<div class="p-8">
+    <h1 class="text-2xl font-black mb-4">{{tituloPanel}}</h1>
+    
+    <div class="mb-6">
+        <label for="buscar" class="block text-sm font-medium">{{labelBuscador}}</label>
+        <input [(ngModel)]="nombreFiltro" type="text" [placeholder]="placeholder" 
+               class="border p-2 rounded w-full md:w-64 focus:ring-2 focus:ring-indigo-500 outline-none transition-all">
+
+        <p class="mt-2 text-gray-600">
+            Buscando: <span class="font-bold text-indigo-600">{{nombreFiltro}}</span>
+        </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        @for (paciente of pacientesFiltrados; track paciente.nombre) {
+        <div class="border p-5 rounded-2xl shadow-sm bg-white hover:shadow-md transition-shadow">
+            <h3 class="text-lg font-bold text-slate-800">
+                {{paciente.nombre}}
+            </h3>
+            
+            <p class="text-xs mb-3 uppercase font-black tracking-wider"
+               [ngClass]="{
+                'text-red-600': paciente.urgencia === 'alta',
+                'text-yellow-600': paciente.urgencia === 'media',
+                'text-green-600': paciente.urgencia === 'baja'
+               }">
+                Prioridad: {{paciente.urgencia}}
+            </p>
+
+            <div class="w-full bg-gray-100 rounded-full h-2.5 mb-2 overflow-hidden">
+                <div class="h-full transition-all duration-700 ease-out"
+                    [ngStyle]="{'width': paciente.recuperacion + '%'}"
+                    [ngClass]="{
+                        'bg-red-500': paciente.urgencia === 'alta',
+                        'bg-yellow-500': paciente.urgencia === 'media',
+                        'bg-green-500': paciente.urgencia === 'baja'
+                    }">
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center">
+                <span class="text-[10px] font-bold text-gray-400 uppercase">Recuperación</span>
+                <span class="text-xs font-bold text-slate-700">{{paciente.recuperacion}}%</span>
+            </div>
+        </div>
+        } @empty {
+            <div class="col-span-full text-center py-10 text-gray-400 italic">
+                No se encontraron pacientes con ese nombre.
+            </div>
+        }
+    </div>
+</div>
