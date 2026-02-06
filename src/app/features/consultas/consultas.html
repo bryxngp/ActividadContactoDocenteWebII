@@ -65,7 +65,6 @@ titulo="Nuestros Perritos"
         <div class="flex flex-col">
 
             @if (mascotaSeleccionada) {
-            <!--Llamamos al componente hijo-->
             <app-detalle-mascota [mascota]="mascotaSeleccionada" (notificarAccion)="procesarAviso($event)">
 
             </app-detalle-mascota>
