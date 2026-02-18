@@ -1,0 +1,99 @@
+#form-ui {
+    background-color: #f0f9ff; /* Azul muy claro de fondo */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* Fondo con gradiente suave médico */
+    background-image: radial-gradient(circle at center, #e0f2fe 0%, #f0f9ff 100%);
+    position: relative;
+}
+
+/* Decoración de huellitas sutiles de fondo */
+#form-ui::before {
+    content: "🐾";
+    position: absolute;
+    font-size: 150px;
+    opacity: 0.03;
+    top: 10%;
+    left: 10%;
+    transform: rotate(-20deg);
+}
+
+#form {
+    width: 380px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(15px);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 20px 40px rgba(15, 118, 110, 0.1); /* Sombra color cerceta */
+}
+
+#welcome-line-1 {
+    /* Gradiente de Azul Médico a Verde Menta */
+    background: linear-gradient(90deg, #0891b2, #10b981);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 1.1;
+}
+
+#welcome-line-2 {
+    color: #475569; /* Gris azulado elegante */
+    font-weight: 400;
+    font-size: 18px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+/* Estilo para los inputs */
+input {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    color: #1e293b !important;
+}
+
+input:focus {
+    border-color: #0891b2 !important;
+    box-shadow: 0 0 0 4px rgba(8, 145, 178, 0.1) !important;
+}
+
+/* Botón Principal (Entrar) */
+#submit-button {
+    background: linear-gradient(135deg, #0891b2, #0d9488);
+    border-radius: 15px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+#submit-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(8, 145, 178, 0.2);
+}
+
+/* Botón Secundario (Salir) */
+.btn-salir {
+    background: #f1f5f9;
+    color: #64748b;
+    border: 1px solid #e2e8f0;
+    margin-top: 10px;
+}
+
+/* La barra inferior como una línea de pulso médico */
+#bar {
+    background: #10b981;
+    width: 50px;
+    height: 4px;
+    border-radius: 10px;
+    position: relative;
+    animation: pulse-health 2s infinite ease-in-out;
+}
+
+@keyframes pulse-health {
+    0% { transform: scaleX(1); opacity: 0.5; }
+    50% { transform: scaleX(1.5); opacity: 1; }
+    100% { transform: scaleX(1); opacity: 0.5; }
+}

@@ -1,0 +1,51 @@
+<div class="flex min-h-screen items-center justify-center bg-gray-100 p-4">
+    <div class="w-full max-w-md rounded-lg bg-white p-8 shadow-md">
+        <h2 class="mb-6 text-2xl font-bold text-center text-gray-800">Crea tu cuenta</h2>
+
+        <form [formGroup]="formCuenta"  (ngSubmit)="registrar()" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Correo electrónico</label>
+                <input formControlName="email" type="email" placeholder="ejemplo@correo.com"
+                    class="mt-1 w-full rounded-md border border-gray-300 p-2 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500">
+                @if (formCuenta.get('email')?.invalid && formCuenta.get('email')?.touched){
+                <p class="mt-2 text-sm text-red-600">
+                    @if (formCuenta.get('email')?.errors?.['required']) {El email es obligatorio}
+                    @else if (formCuenta.get('email')?.errors?.['pattern']) {No cumple el formato de email}
+                </p>
+                }
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Contraseña</label>
+                <input formControlName="password" type="text" placeholder="********"
+                    class="mt-1 w-full rounded-md border border-gray-300 p-2 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500">
+                @if (formCuenta.get('password')?.invalid && formCuenta.get('password')?.touched){
+                <p class="mt-2 text-sm text-red-600">
+                    Debe contener minimo 8 caracteres , letras y numeros
+                </p>
+                }
+
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Confirmar contraseña</label>
+                <input formControlName="repeatPassword" type="text" placeholder="********"
+                    class="mt-1 w-full rounded-md border border-gray-300 p-2 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500">
+                @if (formCuenta.hasError('noCoinciden') && formCuenta.get('repeatPassword')?.touched){
+                <p class="mt-2 text-sm text-red-600">
+                    Contraseñas no coinciden
+                </p>
+                }
+            </div>
+
+
+                <button type="submit" [disabled]="formCuenta.invalid"
+                    [class]="formCuenta.invalid 
+        ? 'w-full rounded-full bg-gray-300 py-3 text-white font-bold cursor-not-allowed' 
+        : 'w-full rounded-full bg-[#4ade80] py-3 text-white font-bold hover:bg-[#22c55e] transition-colors duration-300 shadow-lg shadow-green-100'">
+                    Registrar
+                </button>
+
+        </form>
+    </div>
+</div>
