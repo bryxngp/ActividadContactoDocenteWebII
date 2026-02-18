@@ -3,4 +3,6 @@ export interface Usuario{
     name:String;
     email: String;
     phone:String;
+    password:string;
+    rol: 'ADMIN' | 'EMPLEADO';
 }

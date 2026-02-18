@@ -1,3 +1,4 @@
+<br>
 <section id="form-ui" class="relative">
     <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#0891b2] via-[#10b981] to-[#0891b2]"></div>
 
@@ -18,7 +19,7 @@
                     Acceso al Sistema
                 </h2>
 
-                <form class="space-y-4" (submit)="$event.preventDefault()">
+                <form (ngSubmit)="iniciarSesion()" class="space-y-4" (submit)="$event.preventDefault()">
                     <div>
                         <label class="block mb-2 text-sm font-medium text-slate-600">Correo Institucional</label>
                         <input [(ngModel)]="email" type="email" name="email"
@@ -43,15 +44,13 @@
                     </div>
 
                     <div class="space-y-3">
-                        <button (click)="iniciarSesion()" type="submit" id="submit-button"
+                        <button type="submit" id="submit-button"
                             class="w-full text-white py-4 text-center uppercase tracking-wider">
                             Ingresar
                         </button>
 
-                        <button (click)="cerrarSesion()" type="button"
-                            class="w-full py-3 rounded-xl text-sm font-semibold btn-salir hover:bg-gray-200 transition-colors">
-                            Cerrar Sesión
-                        </button>
+
+
                     </div>
 
                     <p class="text-xs text-slate-400 text-center pt-4">

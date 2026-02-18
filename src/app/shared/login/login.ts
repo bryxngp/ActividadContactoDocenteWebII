@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/auth-service';
 import { FormsModule, NgModel } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,20 +11,29 @@ import { FormsModule, NgModel } from '@angular/forms';
 })
 export class Login {
 
-  email: string='';
-  password:string='';
+  email: string = '';
+  password: string = '';
 
   private servicioAuth = inject(AuthService);
 
-  iniciarSesion(){
-    this.servicioAuth.login(this.email, this.password);
+  private router = inject(Router);
 
-    alert('Bienvenidos al sistema')
+  iniciarSesion() {
+    this.servicioAuth.login(this.email, this.password).subscribe(success => {
+      if (success) {
+        alert('Bienvenidos al sistema')
+        this.router.navigate(['/usuarios'])
+      } else {
+        alert('Error: Usuario no autenticado');
+      }
+    })
 
   }
 
-  cerrarSesion(){
+  cerrarSesion() {
     this.servicioAuth.logout();
+
+    alert('Sesion Cerrada');
   }
 
 }

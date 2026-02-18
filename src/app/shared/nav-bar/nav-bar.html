@@ -1,65 +1,87 @@
-<nav
-    class="bg-gradient-to-r from-emerald-600 via-teal-500 to-mint-400 fixed w-full z-20 top-0 start-0 border-b border-white/20 shadow-xl">
+<nav class="bg-white/90 backdrop-blur-md fixed w-full z-20 top-0 start-0 border-b border-emerald-100 shadow-md">
     <style>
-        .to-mint-400 {
-            --tw-gradient-to: #4ade80;
+        /* Personalización de colores específicos para Patitas */
+        .brand-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
         }
 
-        .text-emerald-600 {
-            color: #059669;
+        .nav-link-active {
+            color: #059669 !important;
+            font-weight: 800;
+        }
+
+        /* Efecto de burbuja suave para los enlaces */
+        .hover-pill:hover {
+            background-color: rgba(16, 185, 129, 0.08);
+            transform: translateY(-1px);
         }
     </style>
 
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3">
         <a routerLink="/" class="flex items-center space-x-3 rtl:space-x-reverse group">
-            <div class="bg-white p-1.5 rounded-full shadow-lg group-hover:rotate-12 transition-transform duration-300">
-                <img src="/images/veterinario.png" class="h-8" alt="Patitas Logo" />
+            <div
+                class="brand-gradient p-2 rounded-2xl shadow-emerald-200 shadow-lg group-hover:rotate-6 transition-all duration-300">
+                <img src="/images/veterinario.png" class="h-9 filter brightness-0 invert" alt="Patitas Logo" />
             </div>
-            <span class="self-center text-2xl font-black tracking-tight whitespace-nowrap text-white">Patitas</span>
+            <div class="flex flex-col">
+                <span
+                    class="self-center text-2xl font-black tracking-tighter whitespace-nowrap text-emerald-900 leading-none">Patitas</span>
+                <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-emerald-500">Veterinaria</span>
+            </div>
         </a>
 
         <button data-collapse-toggle="navbar-default" type="button"
-            class="inline-flex items-center p-2 w-10 h-10 justify-center text-white rounded-lg md:hidden hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-emerald-200"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-emerald-600 rounded-xl md:hidden hover:bg-emerald-50 focus:outline-none focus:ring-2 focus:ring-emerald-200 transition-colors"
             aria-controls="navbar-default" aria-expanded="false">
             <span class="sr-only">Open main menu</span>
             <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
                     d="M4 6h16M4 12h16M4 18h16" />
             </svg>
         </button>
 
         <div class="hidden w-full md:block md:w-auto" id="navbar-default">
             <ul
-                class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-white/20 rounded-2xl bg-emerald-700 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent">
+                class="font-semibold flex flex-col p-4 md:p-0 mt-4 border border-emerald-50 rounded-3xl bg-emerald-50/50 md:flex-row md:items-center md:space-x-4 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent">
                 <li>
-                    <a href="#" routerLinkActive="md:font-extrabold bg-white/10 md:bg-transparent"
-                            class="block py-2 px-3 text-white rounded-lg md:p-0 transition-colors">Home</a>
+                    <a href="#" routerLinkActive="nav-link-active"
+                        class="block py-2 px-4 text-emerald-800 rounded-xl hover-pill transition-all duration-200">Home</a>
                 </li>
                 <li>
-                    <a routerLink="/acerca" routerLinkActive="md:text-emerald-100 font-bold"
-                        class="block py-2 px-3 text-emerald-50 rounded-lg hover:bg-white/10 md:hover:bg-transparent md:border-0 md:p-0 transition-all hover:translate-y-[-2px]">Acerca</a>
+                    <a routerLink="/acerca" routerLinkActive="nav-link-active"
+                        class="block py-2 px-4 text-emerald-700/80 rounded-xl hover-pill transition-all duration-200">Acerca</a>
                 </li>
                 <li>
-                    <a routerLink="/consultas" routerLinkActive="md:text-emerald-100 font-bold"
-                        class="block py-2 px-3 text-emerald-50 rounded-lg hover:bg-white/10 md:hover:bg-transparent md:border-0 md:p-0 transition-all hover:translate-y-[-2px]">Consultas</a>
+                    <a routerLink="/consultas" routerLinkActive="nav-link-active"
+                        class="block py-2 px-4 text-emerald-700/80 rounded-xl hover-pill transition-all duration-200">Consultas</a>
                 </li>
                 <li>
-                    <a routerLink="/mascotas" routerLinkActive="md:text-emerald-100 font-bold"
-                        class="block py-2 px-3 text-emerald-50 rounded-lg hover:bg-white/10 md:hover:bg-transparent md:border-0 md:p-0 transition-all hover:translate-y-[-2px]">Mascotas</a>
+                    <a routerLink="/mascotas" routerLinkActive="nav-link-active"
+                        class="block py-2 px-4 text-emerald-700/80 rounded-xl hover-pill transition-all duration-200">Mascotas</a>
                 </li>
                 <li>
-                    <a routerLink="/cuenta" routerLinkActive="md:text-emerald-100 font-bold"
-                        class="block py-2 px-3 text-emerald-50 rounded-lg hover:bg-white/10 md:hover:bg-transparent md:border-0 md:p-0 transition-all hover:translate-y-[-2px]">Crear Cuenta</a>
+                    <a routerLink="/cuenta" routerLinkActive="nav-link-active"
+                        class="block py-2 px-4 text-emerald-700/80 rounded-xl hover-pill transition-all duration-200">Crear
+                        Cuenta</a>
                 </li>
 
-                  <li>
-                    <a routerLink="/login" routerLinkActive="md:text-emerald-100 font-bold"
-                        class="block py-2 px-3 text-emerald-50 rounded-lg hover:bg-white/10 md:hover:bg-transparent md:border-0 md:p-0 transition-all hover:translate-y-[-2px]">Login</a>
+                <li>
+                    <a routerLink="/login" routerLinkActive="nav-link-active"
+                        class="block py-2 px-4 text-emerald-700/80 rounded-xl hover-pill transition-all duration-200">Login</a>
                 </li>
-                
+
+                <li class="md:ml-2">
+                    <button (click)="cerrarSesion()" type="button"
+                        class="w-full md:w-auto px-5 py-2 text-rose-500 hover:bg-rose-50 font-bold rounded-xl transition-colors uppercase text-[11px] tracking-widest border border-transparent hover:border-rose-100">
+                        Cerrar Sesión
+                    </button>
+                </li>
+
                 <li>
                     <a routerLink="/usuarios"
-                        class="ml-0 md:ml-4 block py-2.5 px-6 text-emerald-600 bg-white font-black rounded-full hover:bg-emerald-50 shadow-lg transition-all active:scale-90 text-center uppercase text-sm tracking-wider">Registro</a>
+                        class="ml-0 md:ml-2 block py-2.5 px-8 text-white brand-gradient font-bold rounded-full shadow-lg shadow-emerald-200 hover:shadow-emerald-300 hover:scale-105 active:scale-95 transition-all text-center uppercase text-xs tracking-wider">
+                        Registro
+                    </a>
                 </li>
             </ul>
         </div>
