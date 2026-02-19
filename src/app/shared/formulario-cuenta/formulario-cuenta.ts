@@ -19,20 +19,19 @@ export class FormularioCuenta {
   formCuenta = this.fb.group(
     {
       email: ['', [Validators.required, Validators.pattern(this.reglaEmail)]],
-      password: ['', [Validators.required, Validators.pattern(this.reglaPassword)]],
-      repeatPassword: ['', [Validators.required]]
+      comentar: ['', [Validators.required]]
 
     },
-    {validators: this.validarClaves}
+    //{validators: this.validarClaves}
   );
 
   //METODO PARA VALIDACION
-  validarClaves(control: AbstractControl): ValidationErrors | null {
+  /**validarClaves(control: AbstractControl): ValidationErrors | null {
     const clave1 = control.get('password')?.value
     const clave2 = control.get('repeatPassword')?.value;
 
     return clave1 === clave2 ? null : { noCoinciden: true };
-  }
+  }*/
 
   //METODO PARA MOSTRAR LOS ERRORES PERSONALIZAOS
   mostrarError(campo: string, tipoError: string): boolean {
@@ -47,10 +46,36 @@ export class FormularioCuenta {
 
   registrar() {
     if (this.formCuenta.valid) {
-      console.log('La cuenta creada es' ,this.formCuenta.value);
 
-      alert('Registro exitoso');
+      //URLSearchParams crea un objeto especial q formatea los datos del formulario como una URL
+      const contenido = new URLSearchParams();
+      contenido.set('form-name', 'contacto');
+      contenido.set('email', this.formCuenta.value.email ?? '');
+      contenido.set('comentario', this.formCuenta.value.comentar ?? '');
 
+      //Promesa: Funcion especial de JS que se usa para hacer peticiones http atraves de la red
+      fetch('/', {
+        method: 'POST',
+        //INDICAR QUE LOS DATOS Q SE VAN A ENVIAR ESTAN CODIFICADOS COMO UNA URL NO COMO JSON
+        headers: {
+          'Content-Type': "application/x-www-form-urlencoded"
+        },
+
+        //CONVERTIR TODO EL OBJETO A UNA CADENA DE TEXTO LISTA PARA ENVIARSE
+        body: contenido.toString()
+
+      })
+
+        //SI LA PROMESA SE CUMPLE 
+        .then(() => {
+          alert("Enviado con exito ");
+          this.formCuenta.reset();
+        })
+
+        //SI LA PROMESA NO SE CUMPLE
+        .catch((error) => {
+          alert("No se pueden enviar los datos: " + error);
+        });
     }
   }
 }

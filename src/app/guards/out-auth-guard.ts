@@ -12,3 +12,4 @@ export const outAuthGuard: CanActivateFn = (route, state) => {
 
   return true;
 };
+  
