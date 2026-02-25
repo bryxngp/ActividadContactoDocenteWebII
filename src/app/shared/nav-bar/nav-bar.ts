@@ -10,6 +10,8 @@ import { AuthService } from '../../services/auth-service';
 })
 export class NavBar {
 
+  public servicioAuth = inject(AuthService);
+
   private authService = inject(AuthService);
   private router = inject(Router);
 
@@ -29,3 +31,5 @@ export class NavBar {
   }
 
 }
+
+

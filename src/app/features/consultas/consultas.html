@@ -52,7 +52,9 @@ titulo="Nuestros Perritos"
             <ul class="space-y-3">
 
                 @for (mascota of mascotas; track mascota.id) {
-                <li (click)="verDetalles(mascota)"
+                <li 
+                [routerLink]="['/consultas/ver']"
+                (click)="verDetalles(mascota)"
                     class="flex justify-between items-center p-3 hover:bg-indigo-50 border rounded-lg cursor-pointer transition-colors group">
                     <span class="text-gray-700 font-medium group-hover:text-indigo-600">{{mascota.nombre}}</span>
                     <span class="text-xs bg-indigo-100 text-indigo-600 px-2 py-1 rounded-full uppercase font-bold">Ver
