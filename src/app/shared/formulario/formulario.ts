@@ -22,11 +22,10 @@ export class Formulario {
   editando = false;
 
   nuevoUsuario: Usuario = {
-    name: '',
+    nombre: '',
     email: '',
-    phone: '',
     password: '',
-    rol:'EMPLEADO'
+    rol:'ROLE_VETERINARIO'
 
   };
 
@@ -38,7 +37,7 @@ export class Formulario {
 
   //Metodo obtenerusuarios
   obtenerUsuarios() {
-    this.servicioUsuario.getUsuarios().subscribe(usuarios => {
+    this.servicioUsuario.getUsuario().subscribe(usuarios => {
       this.listaUsuarios.set(usuarios);
     });
   }
@@ -61,7 +60,7 @@ export class Formulario {
     }
     
     //METODO ELIMINAR
-    eliminarUsuario(id: string){
+    eliminarUsuario(id: number){
       if (confirm('Desea eliminar el registro?')) {
 
         this.servicioUsuario.deleteUsuario(id).subscribe(() => {
@@ -82,7 +81,7 @@ export class Formulario {
     //metodo limpiar formulario
     resetear(){
       this.editando=false;
-      this.nuevoUsuario={name:'', email:'', phone:'', password:'', rol:'EMPLEADO'}
+      this.nuevoUsuario={nombre:'', email:'', password:'', rol:'ROLE_VETERINARIO'}
     }
 
     //METODO PARA GUARDAR

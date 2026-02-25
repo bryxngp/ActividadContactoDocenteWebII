@@ -2,6 +2,8 @@ import { inject, Injectable, signal } from '@angular/core';
 import { getAuth, signInWithEmailAndPassword, signOut, User } from 'firebase/auth';
 import { UsuarioService } from './usuario-service';
 import { map, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Usuario } from '../models/usuario';
 
 @Injectable({
   providedIn: 'root',
@@ -9,6 +11,7 @@ import { map, Observable } from 'rxjs';
 export class AuthService {
 
   private servicioUsuario = inject(UsuarioService);
+  private http = inject(HttpClient);
 
   //LOCAL STORAGE
   sesionIniciada = signal<boolean>(localStorage.getItem('sesion') === 'true');
@@ -27,34 +30,27 @@ export class AuthService {
       .catch(err => console.error('No puede iniciar Sesion', err.message))
   }*/
 
+  //Accedemos al rol del usuario
+  rolActual = signal<string | null>(localStorage.getItem('rol'));
 
-  //ACCEDEMS AL ROL DEL USUARIO
-  rolActual = signal<string | null>(localStorage.getItem('rol'))
+  private API_URL = 'http://localhost:8080/login';
 
-  login(email: string, password: string): Observable<boolean> {
-    return this.servicioUsuario.getUsuarios().pipe(
-      map(usuarios => {
-        const usuarioCoincide = usuarios.find(u => u.email === email && u.password === password);
-
+  login(email: string, passw: string): Observable<boolean> {
+    return this.http.post<Usuario | null>(this.API_URL, { email, password: passw }).pipe(
+      map(usuarioCoincide => {
         if (usuarioCoincide) {
-          localStorage.setItem('sesion', 'true')
-
-          //GUARDAR ESTOS DATOS CONVERTIENDO EL OBJETO JSON A TEXTO
+          localStorage.setItem('sesion', 'true');
+          //guardar los datos convirtiendo el objeto json a texto
           localStorage.setItem('user', JSON.stringify(usuarioCoincide));
 
-          //Guardar el rol
-          localStorage.setItem('rol', usuarioCoincide.rol)
-
+          localStorage.setItem('rol', usuarioCoincide.rol);
           this.rolActual.set(usuarioCoincide.rol);
 
           this.sesionIniciada.set(true);
-
-          this.confirmarCierre.set(false);
           return true;
         }
         return false;
       })
-
     )
   }
 

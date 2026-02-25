@@ -9,13 +9,10 @@
             {{editando ? 'Editando usuario': 'Registro Rapido'}}
         </h2>
         <form (ngSubmit)="guardarUsuario()" class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <input [(ngModel)]="nuevoUsuario.name" name="name" type="text" placeholder="Nombre completo" required
+            <input [(ngModel)]="nuevoUsuario.nombre" name="nombre" type="text" placeholder="Nombre completo" required
                 class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
 
             <input [(ngModel)]="nuevoUsuario.email" name="email" type="email" placeholder="Correo" required
-                class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
-
-            <input [(ngModel)]="nuevoUsuario.phone" name="phone" type="text" placeholder="Teléfono" required
                 class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
 
             <input [(ngModel)]="nuevoUsuario.password" name="password" type="password" placeholder="******" required
@@ -36,7 +33,7 @@
                     <th class="p-4 font-semibold uppercase text-sm">ID</th>
                     <th class="p-4 font-semibold uppercase text-sm">Nombre</th>
                     <th class="p-4 font-semibold uppercase text-sm">Email</th>
-                    <th class="p-4 font-semibold uppercase text-sm">Teléfono</th>
+
 
 
                 </tr>
@@ -49,7 +46,7 @@
 
                 <tr class="border-b border-slate-100 hover:bg-indigo-50 transition-colors">
                     <td class="p-4 text-slate-500 font-mono text-xs">
-                        @if (servicioAuth.rolActual() === 'ADMIN') {
+                        @if (servicioAuth.rolActual() === 'ROLE_ADMIN') {
                         <button (click)="seleccionarParaEditar(usuarios)" class="pr-5">📝</button>
                         <button (click)="eliminarUsuario(usuarios.id!)">🗑️</button>
                         }@else{
@@ -60,9 +57,9 @@
                         }
                     </td>
                     <td class="p-4 text-slate-500 font-mono text-xs">{{usuarios.id}}</td>
-                    <td class="p-4 text-slate-800 font-medium">{{usuarios.name}}</td>
+                    <td class="p-4 text-slate-800 font-medium">{{usuarios.nombre}}</td>
                     <td class="p-4 text-slate-600">{{usuarios.email}}</td>
-                    <td class="p-4 text-slate-600">{{usuarios.phone}}</td>
+
 
                 </tr>
 

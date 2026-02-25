@@ -1,8 +1,7 @@
 export interface Usuario{
-    id?:string;
-    name:String;
+    id?:number;
+    nombre:String;
     email: String;
-    phone:String;
     password:string;
-    rol: 'ADMIN' | 'EMPLEADO';
+    rol: 'ROLE_ADMIN' | 'ROLE_VETERINARIO';
 }
